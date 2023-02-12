@@ -14,13 +14,13 @@ const iconUrl = computed(() => {
 </script>
 
 <template>
-  <div class="bg-white rounded w-40 h-48 p-2 text-center">
-    <p class="text-lg font-semibold">{{ getDate(day.dt) }}</p>
+  <div class="bg-white rounded w-32 h-44 p-2 text-center text-sm lg:text-lg lg:w-40 lg:h-48">
+    <p class="font-semibold">{{ getDate(day.dt) }}</p>
     <img
       :src="iconUrl"
       :alt="day.weather[0].description"
       class="mx-auto"
       >
-    <p class="text-lg mt-2">{{ day.temp.max }}° / {{ day.temp.min }}°</p>
+    <p class="mt-2">{{ day.temp.max }}° / {{ day.temp.min }}°</p>
   </div>
 </template>

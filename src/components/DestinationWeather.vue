@@ -4,9 +4,9 @@ const props = defineProps(['destination'])
 </script>
 
 <template>
-  <div class="mt-4">
-    <p class="text-lg">{{ destination.city }} / {{ destination.state }} / {{ destination.country }}</p>
-    <div class="flex flex-wrap space-x-4 mt-4">
+  <div class="mt-4 mx-auto flex flex-col items-center container">
+    <p class="sm:text-lg">{{ destination.city }} / {{ destination.state }} / {{ destination.country }}</p>
+    <div class="mt-4 grid grid-cols-2 gap-4 content-center sm:grid-cols-3 md:grid-cols-4">
       <DayCard
         v-for="(day, idx) in destination.weather.daily"
         :key="idx"

@@ -11,12 +11,12 @@ function addDestination(destination) {
 </script>
 
 <template>
-  <header class="h-16 bg-white flex items-center justify-center">
-    <h1 class="text-xl">
+  <header class="h-16 bg-white flex items-center justify-center px-4">
+    <h1 class="text-lg font-semibold sm:text-xl">
       Reservamos Weather Comparator
     </h1>
   </header>
-  <main class="px-8">
+  <main class="px-4 sm:px-8">
     <InputSearch
       @new-destination="addDestination"
       />
