@@ -1,14 +1,12 @@
-# reservamos-weather
+# Reservamos Weather
 
-This template should help get you started developing with Vue 3 in Vite.
+App to compare the weather forecast for the next 7 days, by day, of different destinations offered by Reservamos, based on user input search.
 
-## Recommended IDE Setup
+## Technologies used
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Vue.js 3 (Composition API), Tailwind 3, Vite
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Recommended version of Node to compile: 18
 
 ## Project Setup
 
