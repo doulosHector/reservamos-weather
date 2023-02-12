@@ -1,11 +1,12 @@
 <script setup>
 import InputSearch from '@/components/InputSearch.vue'
-import { ref } from 'vue'
+import DestinationWeather from '@/components/DestinationWeather.vue'
+import { reactive } from 'vue'
 
-const searches = ref([])
+const destinations = reactive([])
 
-function addSearch(search) {
-  console.log(search)
+function addDestination(destination) {
+  destinations.push(...destination)
 }
 </script>
 
@@ -15,10 +16,17 @@ function addSearch(search) {
       Reservamos Weather Comparator
     </h1>
   </header>
-  <main>
+  <main class="px-8">
     <InputSearch
-      @new-search="addSearch"
+      @new-destination="addDestination"
       />
+    <div class="mx-auto">
+      <DestinationWeather
+        v-for="(dest, idx) in destinations"
+        :key="idx"
+        :destination="dest"
+        />
+    </div>
   </main>
 </template>
 

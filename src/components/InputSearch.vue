@@ -2,7 +2,7 @@
 import { getPlaces } from '@/services/reservamos_api'
 import { getWeather } from '@/services/openweathermap_api'
 import { ref } from 'vue'
-const emit = defineEmits(['newSearch'])
+const emit = defineEmits(['new-destination'])
 
 const destination = ref('')
 const loading = ref(false)
@@ -17,13 +17,13 @@ async function searchDestination() {
         const { data: weather } = await getWeather(city.lat, city.long)
         return {
           city: city.city_name,
+          state: city.state,
           country: city.country,
-          display: city.display,
           weather
         }
       })
     )
-    emit('newSearch', weatherCities)
+    emit('new-destination', weatherCities)
   } catch (error) {
     console.error(error)
   }
@@ -40,8 +40,10 @@ async function searchDestination() {
         id="destination"
         type="text"
         class="h-10 px-2 text-lg rounded"
+        :class="{ 'opacity-50': loading }"
         v-model="destination"
         @keyup.enter="searchDestination"
+        :disabled="loading"
         >
     </div>
     <button
@@ -50,7 +52,7 @@ async function searchDestination() {
       :disabled="loading"
       @click="searchDestination"
       >
-      {{ loading ? 'Loading' : 'Search' }}
+      {{ loading ? 'Loading...' : 'Search' }}
     </button>
   </div>
 </template>
