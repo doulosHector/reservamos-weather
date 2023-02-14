@@ -15,6 +15,13 @@ async function searchDestination() {
     const weatherCities = await Promise.all(
       cities.map(async(city) => {
         const { data: weather } = await getWeather(city.lat, city.long)
+        let maxDay = weather.daily[0]
+        weather.daily.forEach(item => {
+          if (item.temp.max > maxDay.temp.max) {
+            maxDay = item
+          }
+        })
+        maxDay.maxTemp = true
         return {
           city: city.city_name,
           state: city.state,

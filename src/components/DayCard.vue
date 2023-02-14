@@ -14,7 +14,10 @@ const iconUrl = computed(() => {
 </script>
 
 <template>
-  <div class="bg-white rounded w-32 h-44 p-2 text-center text-sm lg:text-lg lg:w-40 lg:h-48">
+  <div
+    class="bg-white rounded w-32 h-44 p-2 text-center text-sm lg:text-lg lg:w-40 lg:h-48"
+    :class="{ 'bg-red-200': day.maxTemp }"
+    >
     <p class="font-semibold">{{ getDate(day.dt) }}</p>
     <img
       :src="iconUrl"
